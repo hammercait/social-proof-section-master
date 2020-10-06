@@ -1,0 +1,273 @@
+:root{
+    --very-dark-magenta: hsl(300, 43%, 22%);
+    --soft-pink: hsl(333, 80%, 67%);
+    --dark-greyish-magenta: hsl(303, 10%, 53%);
+    --light-greyish-magenta: hsl(300, 24%, 96%);
+    --white: hsl(0, 0%, 100%)
+}
+
+$bp-large: 68.75em;    //1100px
+$bp-medium: 56.25em;   //900px
+$bp-small: 37.5em;     //600px
+$bp-xs: 21.25;         //500px
+$bp-xxs: 25em;    //400px
+
+
+
+*, 
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem=10px 10/16=62.5%
+
+    @media only screen and (max-width: $bp-large) {
+        font-size: 50%;
+    }
+
+    //@media only screen and (max-width: $bp-medium) {
+    //    font-size: 37.5%;
+    //}
+}
+
+body {
+    font-family: 'Spartan', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--very-dark-magenta);
+
+}
+
+.container {
+    background-image: url(images/bg-pattern-top-desktop.svg), url(images/bg-pattern-bottom-desktop.svg);
+    background-position:  top left, bottom right;
+    background-repeat: no-repeat;
+    padding: 10rem 10rem;
+    height: 100vh;
+
+
+
+    @media only screen and (max-width: $bp-medium) {
+        height: 150vh;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        height: 200vh;
+    }
+
+    @media only screen and (max-width: $bp-xxs) {
+        background-image: url(images/bg-pattern-top-desktop.svg), url(images/bg-pattern-bottom-desktop.svg);
+        padding: 10rem 3rem;
+        height: 165vh;
+    }
+
+    //@media only screen and (max-width: $bp-small) {
+    //    background-image: url(images/bg-pattern-top-mobile.svg), url(images/bg-pattern-bottom-mobile.svg);
+    //}
+}
+
+.header{
+     display: flex;
+     position: relative;
+     justify-content: space-between;
+
+     @media only screen and (max-width: $bp-medium) {
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+     }
+
+    &__text {
+        width: 40%;
+        @media only screen and (max-width: $bp-medium) {
+            width: 64%;
+        }
+
+        @media only screen and (max-width: $bp-xxs) {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+
+     &__heading--1 {
+         font-size: 5rem;
+         font-weight: 700;
+         line-height: 1;
+         margin-bottom: 1rem;
+         
+        @media only screen and (max-width: $bp-xxs) {
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            width: 90%;
+            left: 50%;
+        }
+     }
+
+     &__p--1 {
+        font-size: 1.5rem;
+        line-height: 1.6;
+        
+        @media only screen and (max-width: $bp-xxs) {
+            font-size: 1.9rem;
+            width: 100%;
+        }
+    }
+}
+
+.rating-cards {
+
+    &__card {
+        background-color: var(--light-greyish-magenta);
+        margin-top: 1.5rem;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 2rem 5rem 1.3rem 3rem;
+        font-weight: 700;
+        font-size: 1.5rem;
+        white-space: nowrap;
+
+        @media only screen and (max-width: $bp-medium) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-xxs) {
+            flex-direction:column;
+            padding: 2rem 7rem;
+        }
+
+
+        
+    &.card-1 {
+        transform: translateX(-7rem);
+        
+        @media only screen and (max-width: $bp-medium) {
+            transform: none;
+        }
+    }
+
+    &.card-2 {
+        transform: translateX(-3.5rem);
+        
+        @media only screen and (max-width: $bp-medium) {
+            transform: none;
+        }
+    }
+    }
+
+    &__stars {
+        margin-right: 3rem;
+        
+        @media only screen and (max-width: $bp-medium) {
+            margin-right:1rem;
+        }
+    }
+    &__icon-star {
+        width: 1.5rem;
+        margin-right:3px;
+        @media only screen and (max-width: $bp-medium) {
+            width:2rem;
+        }
+
+    }
+}
+
+.testimonials {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10rem;
+    justify-content: space-between;
+    
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+        width: 50%;
+        justify-content:center;
+        align-items: center;
+        margin-top: 6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        position:absolute;
+    }
+
+    @media only screen and (max-width: $bp-xxs) {
+        width: 75%;
+    }
+
+    &__testimonial-card {
+        background-color: var(--very-dark-magenta);
+        border-radius: 1rem;
+        padding:3rem;
+        width:auto;
+
+        &:not(:last-child) {
+            margin-right:3rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin-right: 0;
+                margin-bottom: 3rem;
+            }
+        }
+
+        &.testimonial-card-1 {
+            transform: translateY(-2rem);
+            @media only screen and (max-width: $bp-medium) {
+                transform: none;
+            }
+        }
+        &.testimonial-card-3 {
+            transform: translateY(2rem);
+            @media only screen and (max-width: $bp-medium) {
+                transform: none;
+            }
+        }
+        
+    }
+
+
+    &__top {
+        display: flex;
+        margin-bottom: 3rem;
+        align-items: center; 
+    }
+
+    &__top-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__img {
+        border-radius: 50%;
+        width:5rem;
+        margin-right: 3rem;
+    }
+
+    &__p-1 {
+        color: var(--white);
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    &__p-2 {
+        color: var(--soft-pink);
+        font-size: 1.5rem;
+    }
+
+    &__p-3 {
+        color: var(--light-greyish-magenta);
+        font-size: 1.5rem;
+    }
+
+}
